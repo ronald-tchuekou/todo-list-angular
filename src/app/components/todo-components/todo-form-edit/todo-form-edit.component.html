@@ -1,0 +1,6 @@
+<app-todo-form
+  *ngIf="!loading"
+  title="Edit"
+  [todo]="todo"
+  (onSubmit)="submit($event)"
+></app-todo-form>

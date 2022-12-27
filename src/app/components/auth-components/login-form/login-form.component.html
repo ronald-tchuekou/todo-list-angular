@@ -1,0 +1,39 @@
+<div class="shadow-lg rounded-xl bg-white w-full p-5">
+  <h1 class="text-center text-3xl font-medium">ToDo Connexion</h1>
+  <form
+    [formGroup]="formGroup"
+    (submit)="submit()"
+    class="mt-5 flex flex-col gap-3">
+
+    <ul *ngIf="errors.length > 0" class="w-full p-2 bg-red-500/30 rounded-md">
+      <li *ngFor="let error of errors" class="text-red-500 text-base">{{error}}</li>
+    </ul>
+
+    <div class="w-full">
+      <label class="text-base text-gray-400 block pb-2">Username :</label>
+      <input
+        type="text"
+        formControlName="username"
+        class="px-4 py-2 rounded-md border w-full text-gray-500">
+    </div>
+
+    <div class="w-full">
+      <label class="text-base text-gray-400 block pb-2">Password :</label>
+      <input
+        type="password"
+        formControlName="password"
+        class="px-4 py-2 rounded-md border w-full text-gray-500">
+    </div>
+
+    <div (click)="handlePassForgot()" class="text-gray-400 text-base cursor-pointer hover:text-indigo-500 py-1">
+      I forgot my password
+    </div>
+
+    <button
+      [disabled]="loading"
+      type="submit"
+      class="bg-indigo-500 shadow-lg shadow-indigo-500/30 rounded-lg text-white tex-base font-medium w-full px-4 py-2 mt-2">
+      Submit
+    </button>
+  </form>
+</div>
